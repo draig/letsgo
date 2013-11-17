@@ -1,0 +1,1 @@
+<center><h1>Wiht in some problems with setd e-mail we can't registrate you.</h1></center>
