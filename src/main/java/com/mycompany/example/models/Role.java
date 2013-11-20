@@ -12,6 +12,7 @@ import org.springframework.security.core.GrantedAuthority;
 @Entity
 @Table(name = "roles")
 public class Role implements GrantedAuthority {
+    public static final String ROLE_DEFAULT = "ROLE_USER" ;
     private Long roleId;
     private String authority;
  
@@ -34,5 +35,11 @@ public class Role implements GrantedAuthority {
  
     public void setAuthority (String authority ) {
         this.authority = authority ;
+    }
+    
+    static public Role defaultARole () {
+        Role role = new Role () ;
+        role.setAuthority( ROLE_DEFAULT );
+        return role ;
     }
 }

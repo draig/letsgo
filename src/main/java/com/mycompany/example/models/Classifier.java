@@ -82,6 +82,11 @@ public class Classifier implements Serializable  {
     public void setPrice(Price price) {
         this.price = price;
     }*/
+    static public Classifier defaultClassifier () {
+        Classifier classifier = new Classifier () ;
+        classifier.setCategory(Category.defaultCategory());
+        return classifier ;
+    }
 
 }
 

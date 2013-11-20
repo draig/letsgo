@@ -18,7 +18,7 @@ public class Category implements Serializable {
     private Boolean professional ;
     private Boolean training ;
     private Boolean other ;
-
+    
     @Id
     @GeneratedValue
     @Column(name = "category_id")
@@ -91,5 +91,17 @@ public class Category implements Serializable {
 
     public void setOther(Boolean other) {
         this.other = other;
+    }
+    
+    static public Category defaultCategory () {
+        Category category = new Category () ;
+        category.setBusiness(Boolean.TRUE);
+        category.setEntertainment(Boolean.TRUE);
+        category.setInformative(Boolean.TRUE);
+        category.setOther(Boolean.TRUE);
+        category.setProfessional(Boolean.TRUE);
+        category.setSports(Boolean.TRUE);
+        category.setTraining(Boolean.TRUE);
+        return category ;
     }
 }

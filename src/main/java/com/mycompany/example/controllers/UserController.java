@@ -1,6 +1,7 @@
 package com.mycompany.example.controllers;
 
 import com.mycompany.example.models.AUser;
+import com.mycompany.example.models.Category;
 import com.mycompany.example.models.Classifier;
 import com.mycompany.example.models.NotAuthorizedUser;
 import com.mycompany.example.models.Role;
@@ -34,10 +35,12 @@ public class UserController {
         return "redirect:/index";
     }
     
-    @RequestMapping("/registration_aprove")
+   /* @RequestMapping("/registration_aprove")
     public String aproveReg( @ModelAttribute("nauser") NotAuthorizedUser nauser ) {
         AUser auser = new AUser () ;
-        auser.setClassifier( new Classifier () );
+        Classifier classifier = new Classifier () ;
+        classifier.setCategory( new Category () );
+        auser.setClassifier( classifier );
         auser.setUsername(nauser.getUsername());
         auser.setEmail(nauser.getEmail());
         auser.setPassword(nauser.getPassword());
@@ -46,7 +49,7 @@ public class UserController {
         auser.setGrantedAuthority( role );
         auserService.addUser(auser);
         return "registration_aprove" ;
-    }
+    }*/
     
     /*@RequestMapping("/registrationC")
     public String registrationC( Model model ) {

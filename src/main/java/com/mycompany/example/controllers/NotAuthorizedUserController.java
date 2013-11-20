@@ -1,6 +1,11 @@
 package com.mycompany.example.controllers;
 
+import com.mycompany.example.models.AUser;
+import com.mycompany.example.models.Category;
+import com.mycompany.example.models.Classifier;
 import com.mycompany.example.models.NotAuthorizedUser;
+import com.mycompany.example.models.Role;
+import com.mycompany.example.service.AUserService;
 import com.mycompany.example.service.NotAuthorizedUserService;
 import com.mycompany.example.service.NotAuthorizedUserValidator;
 import com.mycompany.example.service.RegistrationMailSenderService;
@@ -23,17 +28,23 @@ public class NotAuthorizedUserController {
     private RegistrationMailSenderService regMailSenderService ;
     @Autowired
     private NotAuthorizedUserValidator signupValidator;
+    @Autowired
+    private AUserService auserService;
     
     private Random random = new Random () ;
     
-    @RequestMapping("/aprovereg/{userHash}")
-    public String registrationC( @PathVariable("userHash") String hash , Model model ) {
+    @RequestMapping( value = "/aprovereg/{userHash}" )
+    public String aproveRegistrationC( @PathVariable("userHash") String hash , Model model ) {
         NotAuthorizedUser nauser = notAuthorizedUser.getNotAuthorizedUserByHash(hash) ;
         if ( nauser == null ) {
             return "registration_unsuccessful" ;
         }
-        model.addAttribute ("nauser" , nauser ) ;
-        return "redirect:/registration_aprove";
+        AUser auser = AUser.defaultAUser() ;
+        auser.setUsername(nauser.getUsername());
+        auser.setEmail(nauser.getEmail());
+        auser.setPassword(nauser.getPassword());
+        auserService.addUser(auser);
+        return "registration_aprove" ;
     }
     
     @RequestMapping("/registrationC")

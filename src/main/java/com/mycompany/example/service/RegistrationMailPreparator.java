@@ -9,7 +9,7 @@ import org.springframework.mail.javamail.MimeMessagePreparator;
 public class RegistrationMailPreparator implements MimeMessagePreparator{
     
     private NotAuthorizedUser nauser ;
-    private static final  String APPROVE_REG = "http://localhost:8080/Letsgo/aprovereg/" ;
+    public static final  String APPROVE_REG = "http://localhost:8080/LetsGo/aprovereg/" ;
     public RegistrationMailPreparator ( NotAuthorizedUser nauser ) {
         this.nauser = nauser ;
     }

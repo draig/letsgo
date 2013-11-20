@@ -85,5 +85,12 @@ public class AUser implements Serializable  {
     {
         this.classifier=classifier;
     }
+    
+    static public AUser defaultAUser () {
+        AUser auser = new AUser () ;
+        auser.setClassifier( Classifier.defaultClassifier() );
+        auser.setGrantedAuthority( Role.defaultARole() );
+        return auser ;
+    }
 }
 
