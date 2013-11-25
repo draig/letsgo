@@ -2,24 +2,28 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 
-<footer>
-    <hr>
-    <div>
-          <div style="width: 33%;float: left ;" align="center">
+<footer calss="conteiner">
+    <div class="row">
+        <div class="col-lg-12">
+            <hr>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4 col-xs-12" align="center">
             <a href style="margin: 0 auto;">help</a>
-          </div>
-          <div style="width: 33%;float: right ;" align="center">
+        </div>
+        <div class="col-sm-4 col-xs-12" align="center">
             <a href style="margin:0 auto;">about</a>
-          </div>
-          <div align="center">
+        </div>
+        <div class="col-sm-4 col-xs-12" align="center" >
             <a href style="margin: 0 auto;">developers</a>
-          </div>
         </div>
-        <div align="center">
-          <h6>LetsGO &copy; 2013</h6>
-        </div>
-        <div align="center">
-          <h6><a href="http://vk.com/andrew_dashkevich" style="margin: 0 auto;">Andrew Dashkevich</a></h6>
+    </div>
+    <div calss="col-xs-12" align="center">
+        <h6>LetsGO &copy; 2013</h6>
+    </div>
+    <div class="row" align="center">
+        <h6><a href="http://vk.com/andrew_dashkevich" style="margin: 0 auto;">Andrew Dashkevich</a></h6>
     </div>
 </footer>
 

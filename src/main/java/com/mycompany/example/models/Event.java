@@ -21,14 +21,24 @@ import org.springframework.security.core.userdetails.UserDetails;
 @Table (name="event")
 public class Event implements Serializable  {
 
-    private Long eventId;
-    private String eventname;
-    private String info;
-    private String description ;
-    private Set<Photo>  photo;
-    private Set<Comments> comments ;
-    private Set<GMap> gmap ;
 
+    private Long eventId;
+    private String eventName;
+    private String description ;
+    /*private Set<Photo>  photo;
+    private Set<Comments> comments ;
+    private Set<GMap> gmap ;*/
+    private String eventLink ;
+
+    @JoinColumn(name = "link")
+    public String getEventLink() {
+        return eventLink;
+    }
+
+    public void setEventLink(String eventLink) {
+        this.eventLink = eventLink;
+    }
+        
     @Id
     @GeneratedValue
     @Column(name = "id")
@@ -40,24 +50,16 @@ public class Event implements Serializable  {
         this.eventId = eventId;
     }
     
-    @JoinColumn(name = "event_name")
-    public String getEventname() {
-        return eventname;
+    @JoinColumn(name = "name")
+    public String getEventName() {
+        return eventName;
     }
 
-    public void setEventname(String eventname) {
-        this.eventname = eventname;
+    public void setEventName(String eventname) {
+        this.eventName = eventname;
     }
 
-    @JoinColumn(name = "info")
-    public String getInfo() {
-        return info;
-    }
-
-    public void setInfo(String info) {
-        this.info = info;
-    }
-
+    @JoinColumn(name = "description")
     public String getDescription() {
         return description;
     }
@@ -66,7 +68,7 @@ public class Event implements Serializable  {
         this.description = description;
     }
 
-    @OneToMany(cascade = CascadeType.ALL)
+    /*@OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "photo_id")
     public Set<Photo> getPhoto() {
         return photo;
@@ -94,5 +96,5 @@ public class Event implements Serializable  {
 
     public void setGmap(Set<GMap> gmap) {
         this.gmap = gmap;
-    }
+    }*/
 }

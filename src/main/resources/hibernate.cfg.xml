@@ -2,10 +2,11 @@
 <!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
     <session-factory>
-        <property name="hibernate.hbm2ddl.auto">validate</property><!-- create-->
+        <property name="hibernate.hbm2ddl.auto">update</property><!-- create-->
         <property name="hibernate.validator.autoregister_listeners">false</property><!--  -->
         <mapping class="com.mycompany.example.models.AUser"/>
         <mapping class="com.mycompany.example.models.Role"/>
+        <mapping class="com.mycompany.example.models.Event"/>
         <mapping class="com.mycompany.example.models.Category"/>
         <mapping class="com.mycompany.example.models.Classifier"/>
         <mapping class="com.mycompany.example.models.NotAuthorizedUser"/>

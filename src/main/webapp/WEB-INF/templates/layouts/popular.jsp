@@ -8,7 +8,6 @@
     </div>-->
     <div class="container">
       <!-- Example row of columns -->
-      <div class="row"></div>
       <div class="row">
         <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3" style="padding: 1% 1%;">
           <div class="media" style="background: #fc0; padding: 5px; border: solid 1px black;border-radius:6px;

@@ -6,11 +6,14 @@
                                 http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
                                 http://www.springframework.org/schema/security
                                 http://www.springframework.org/schema/security/spring-security-3.1.xsd">
+    <global-method-security secured-annotations="enabled" />
     <http access-denied-page="/error403.jsp">
         <intercept-url pattern="/anonymous" access="ROLE_ANONYMOUS"/>
         <intercept-url pattern="/admin" access="ROLE_ADMIN"/>
         <intercept-url pattern="/user" access="ROLE_USER"/>
         <intercept-url pattern="/user+admin" access="ROLE_USER,ROLE_ADMIN"/>
+        <intercept-url pattern="/changeEvent/*" access="ROLE_USER,ROLE_ADMIN"/>
+        <intercept-url pattern="/createEventC" access="ROLE_USER,ROLE_ADMIN"/>
         <intercept-url pattern="/add*" access="ROLE_USER"/>
         <intercept-url pattern="/delete/*" access="ROLE_ADMIN"/>
         <intercept-url pattern="/change/*" access="ROLE_ADMIN"/>

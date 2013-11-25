@@ -25,7 +25,7 @@
                     <a href="/LetsGo/searchC"><spring:message code="label.search" /></a>
                 </li>
                 <li>
-                    <a href="/LetsGo/myeventC"><spring:message code="label.add" /></a>
+                    <a href="/LetsGo/createEventC"><spring:message code="label.add" /></a>
                 </li>
             </ul>
 
