@@ -4,6 +4,7 @@ import com.mycompany.example.models.Event;
 import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -57,4 +58,16 @@ public  class EventDAOImpl implements EventDAO {
         }
          return auser.get(0) ;
      }
+    
+    @Override
+    public long eventCount () {
+        long count = ((Integer)sessionFactory.getCurrentSession().createCriteria(Event.class)
+                .setProjection(Projections.rowCount()).uniqueResult()).longValue() ;
+        return count ;
+    }
+    
+    public List<Event> listEvent( int start , int count ){
+        return sessionFactory.getCurrentSession().createCriteria(Event.class)
+                .setFirstResult( start ).setMaxResults(count).list();
+    }
 }

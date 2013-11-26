@@ -16,4 +16,8 @@ public interface EventService {
     public Event getEventById ( Integer id ) ;
     
     public Event getEventByLink ( String link ) ;
+    
+    public long eventCount () ;
+    
+    public List<Event> listEvent( int start , int count );
 }

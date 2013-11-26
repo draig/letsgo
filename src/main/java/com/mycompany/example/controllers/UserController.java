@@ -106,11 +106,7 @@ public class UserController {
         model.addAttribute("name",param);
         return "hello";
     }*/
-    
-    @RequestMapping(value = "/popularC"  )
-    public String popularC( Model model){
-        return "popular";
-    }
+
     
     @RequestMapping(value = "/myeventC"  )
     public String myEventC( Model model){

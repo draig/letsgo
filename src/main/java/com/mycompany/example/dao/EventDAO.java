@@ -18,4 +18,7 @@ public interface EventDAO {
     
     public Event getEventByLink ( String link ) ;
     
+    public long eventCount () ;
+    
+    public List<Event> listEvent( int start , int count );
 }

@@ -49,4 +49,16 @@ public class EventServiceImpl implements EventService {
     public Event getEventByLink ( String link ) {
         return contactDAO.getEventByLink(link) ;
     }
+    
+    @Transactional
+    @Override
+    public long eventCount () {
+        return contactDAO.eventCount() ;
+    }
+    
+    @Transactional
+    @Override
+    public List<Event> listEvent( int start , int count ){
+        return contactDAO.listEvent(start, count) ;
+    }
 }

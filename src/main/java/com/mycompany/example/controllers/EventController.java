@@ -18,6 +18,7 @@ public class EventController {
     @Autowired
     private EventService eventService;
     
+    private final static int viewEventsOnPage = 5 ;
     //@Secured("ROLE_USER")
     @RequestMapping(value = "/createEventC"  )
     public String createEventC( ){
@@ -42,4 +43,19 @@ public class EventController {
         return "redirect:/changeEvent/" + event.getEventLink() ;
     }
     
+    @RequestMapping(value = "/popularC"  )
+    public String popularC( Model model){
+        return "redirect:/allevent/1";
+    }
+    
+    @RequestMapping(value = "/allevent/{idPage}"  )
+    public String showEventPage ( @PathVariable("idPage") int pageNum , Model model ) {
+        long eventCount = eventService.eventCount();
+        long pageCount = eventCount/viewEventsOnPage + (eventCount%viewEventsOnPage==0?0:1) ;
+        model.addAttribute("startpage", pageNum ) ;
+        model.addAttribute("endpage", pageCount  ) ;
+        model.addAttribute( "eventList" , eventService
+                .listEvent( (pageNum - 1 ) * viewEventsOnPage , viewEventsOnPage )) ;
+        return "event_list" ;
+    }
 }
