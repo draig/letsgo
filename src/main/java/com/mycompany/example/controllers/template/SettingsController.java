@@ -1,4 +1,4 @@
-package com.mycompany.example.controllers;
+package com.mycompany.example.controllers.template;
 
 import com.mycompany.example.models.AUser;
 import com.mycompany.example.models.Role;

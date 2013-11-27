@@ -1,30 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans:beans xmlns="http://www.springframework.org/schema/beans"
              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-             xmlns:mvc="http://www.springframework.org/schema/mvc"
+             xmlns:mvc="http://www.springframework.org/schema/tx"
              xmlns:context="http://www.springframework.org/schema/context"
              xmlns:beans="http://www.springframework.org/schema/beans" 
              xsi:schemaLocation= "http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
                                   http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
-                                  http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
-                                  http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
+                                  http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd">
     <!-- DispatcherServlet Context: определяет настройки одного сервлета; бины, которые доступны только ему -->
     <!-- Разрешаем использование аннотаций Spring MVC (то есть @Controller и.т.д) -->
-    <bean id="tilesConfigurer" class="org.springframework.web.servlet.view.tiles2.TilesConfigurer">
-        <property name="definitions" value="/WEB-INF/tiles/tiles-templates.xml" />
-        <property name="preparerFactoryClass" value="org.springframework.web.servlet.view.tiles2.SpringBeanPreparerFactory"/>
-    </bean>
-    <bean id="viewResolver" class="org.springframework.web.servlet.view.tiles2.TilesViewResolver">
-        <property name="requestContextAttribute" value="requestContext"/>
-        <property name="viewClass" value="org.springframework.web.servlet.view.tiles2.TilesView"/>
-    </bean>
-    <context:component-scan base-package="com.mycompany.example.controllers.template"/>
+    <context:component-scan base-package="com.mycompany.example.controllers.nottemplate"/>
     <bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping"/>
     <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter"/>
+    <!-- Всю статику (изображения, css-файлы, javascript) положим в папку webapp/resources и замаппим их на урл вида /resources/** -->
+    <!--<mvc:resources mapping="/resources/**" location="/resources/"/>-->
     <!-- Отображение видов на jsp-файлы, лежащие в папке /WEB-INF/views -->
-    <!--<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <beans:property name="prefix" value="/WEB-INF/templates/layouts/"/>
+    <beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <beans:property name="prefix" value="/"/>
         <beans:property name="suffix" value=".jsp"/>
-    </beans:bean>-->
+    </beans:bean>
     <!-- Файл с настройками контроллеров -->
 </beans:beans>

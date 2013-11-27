@@ -1,4 +1,4 @@
-package com.mycompany.example.controllers;
+package com.mycompany.example.controllers.template;
 
 import com.mycompany.example.models.Event;
 import com.mycompany.example.service.EventService;
@@ -49,7 +49,7 @@ public class EventController {
     }
     
     @RequestMapping(value = "/allevent/{idPage}"  )
-    public String showEventPage ( @PathVariable("idPage") int pageNum , Model model ) {
+    public String showListEvent ( @PathVariable("idPage") int pageNum , Model model ) {
         long eventCount = eventService.eventCount();
         long pageCount = eventCount/viewEventsOnPage + (eventCount%viewEventsOnPage==0?0:1) ;
         model.addAttribute("startpage", pageNum ) ;
@@ -57,5 +57,12 @@ public class EventController {
         model.addAttribute( "eventList" , eventService
                 .listEvent( (pageNum - 1 ) * viewEventsOnPage , viewEventsOnPage )) ;
         return "event_list" ;
+    }
+    
+    @RequestMapping(value = "/event/{link}"  )
+    public String showEvent ( @PathVariable("link") String link , Model model ) {
+        Event event = eventService.getEventByLink(link) ;
+        model.addAttribute("event", event  ) ;
+        return "event_show" ;
     }
 }

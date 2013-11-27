@@ -1,4 +1,4 @@
-package com.mycompany.example.controllers;
+package com.mycompany.example.controllers.template;
 
 import com.mycompany.example.models.AUser;
 import com.mycompany.example.models.Category;
@@ -100,26 +100,11 @@ public class UserController {
         auserService.removeUser(contactId);*/
         return "redirect:/usermanagerC";
     }
-    
-    /*@RequestMapping(value = "/test"  )
-    public String test(@RequestParam("name") String param,Model model){
-        model.addAttribute("name",param);
-        return "hello";
-    }*/
 
-    
     @RequestMapping(value = "/myeventC"  )
     public String myEventC( Model model){
         return "popular";
     }
-    
-    /*@RequestMapping(value="/info")
-     public ModelAndView info(Model model) {
-
-            //model.addAttribute("message", "Info Page !!!");
-
-        return new ModelAndView("info");
-    }*/
     
     @RequestMapping(value="/searchC")
      public ModelAndView searchC(Model model) {
